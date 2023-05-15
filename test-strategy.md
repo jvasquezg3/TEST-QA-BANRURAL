@@ -27,47 +27,32 @@ Al intentar utilizar el proyecto se valida que el botón Ingresar número aleato
 Se procede a abrir la consola del navegador y en efecto muestra un error.
 
 0001 Error: Uncaught TypeError: guessSubmit.addeventListener is not a function at index.html:87:15
-
 Verificación: error de sintaxis línea 87. 
-
 Actualmente se encuentra de la siguiente forma: guessSubmit.addeventListener('click', checkGuess);
-
 Solución: se agrego mayúscula en método: guessSubmit.addEventListener('click', checkGuess);
 
 0002 Error:Uncaught TypeError: Cannot set properties of null (setting 'textContent') at HTMLInputElement.checkGuess (index.html:77:29)
-
 Verificación: Ser valida el error, sin embargo, la línea 77 se encuentra bien, el error se encuentra en la declaración de la línea 49, definición de constantes.
-
 Actualmente esta definido como: const lowOrHi = document.querySelector('lowOrHi');
-
 Solución: se agrego el punto faltante const lowOrHi = document.querySelector('.lowOrHi'); 
 
 **Una vez solucionado las funcionalidades principales la cual permite el uso del botón e iniciar con el ingreso de los números se muestra que los colores de los mensajes no corresponden a lo establecido en los requisitos, estos no muestran ninguna descripción de error.
 
 0003 Error: Color establecido cuando el número es incorrecto, línea 75 no corresponde a los requisitos.
-
 Actualmente muestra color verde: lastResult.style.backgroundColor = 'green';
-
 Solución: colocar color negro: lastResult.style.backgroundColor = 'black';
 
 0004 Error: Validación de intentos, los requisitos indican que deben ser 10 intentos, mientras que el programa tiene establecido 5.
-
 Actualmente tiene declarado 5 intentos, dentro de la constante: const ATTEMPS = 5; línea 46, la cual afecta la línea 69 al momento de la ejecución en else if(guessCount === ATTEMPS),.
-
 Solución: se cambia el valor de la contante de 5 a 10, const ATTEMPS = 10; para cumplir con los 10 intentos establecidos en los requisito (punto 4).
 
 0005 Error: frase no corresponde a la respuesta establecida cuando el usuario no adivina el número despues de los 10 intentos, línea 70.
-
 Actualmente muestra la frase: lastResult.textContent = 'Felicitaciones! adivinaste el número!';
-
 Solución: cambio de la descripción de la frase: lastResult.textContent = '!!!Pérdistes!!!';
 
 0006 Error: Botón "Comienza un juego nuevo" no funciona, Uncaught TypeError: guessSubmit.addeventListener is not a function at index html:95.
-
-Verificació: error de sintaxis línea 95.
-
+Verificación: error de sintaxis línea 95.
 Actualmente envían el método de la siguiente forma: resetButton.addeventListener('click', resetGame);
-
 Solución: se agrego mayúscula en método: resetButton.addEventListener('click', resetGame);
 
 Se corrigen las funcionalidades de las respuestas al momento de colocar un número incorrecto y perder, como también iniciar un nuevo juego.
@@ -77,32 +62,23 @@ Se corrigen las funcionalidades de las respuestas al momento de colocar un núme
 Se procede con la validación de la funcionalidad de adivinar el número, este no genera ningún tipo de error, sin embargo, se detecta que se genera un random entre un rango de 1 a 10 números, se valida la variable randomNumber en la línea 44 y se verifica que el método Math.random() * 10; que se utiliza genera un random entre 0 a 10 pero utilizando decimales no son enteros, a lo que indica los requisitos que debe ser entre un rango de 1 a 100 utilizando enteros.
 
 0007 Error: declaración en el Método Math.random();.
-
 Actualmente lo envían de la siguiente manera: Math.random() * 10; Esta estructura se utiliza para devolver un número entre 0 a 10 pero con punto decimal.
-
 Solución: let randomNumber = Math.floor(Math.random() * 100) + 1; Se coloca floor, ya que este permite devolver enteros, y se coloca +1 para que inicie desde 1 a 100
 
 0008 Error: Falta definir que tipo de variable recibe guessField.value línea 58.
-
 Actualmente se envía let userGuess = guessField.value;
-
 Solución: let userGuess = Number(guessField.value); se define como number para convertir lo que ingrese en el inputo a tipo numerico.
 
 0009 Error: declaración en el método Math.random(); lína 114.
-Actualmente lo envían así: randomNumber = Math.floor(Math.random()) + 1; falta definir el rango, ya que al resetear el juego solamente toma el uno como el número a adivinar
-
+Actualmente lo envían así: randomNumber = Math.floor(Math.random()) + 1; falta definir el rango, ya que al resetear el juego solamente toma el uno como el número a adivinar.
 Solución: randomNumber = Math.floor(Math.random() * 100) + 1; 
 
 0010 Error: frase no corresponde a la respuesta establecida cuando el usuario SI adivina el número antes de 10 intentos, línea 76.
-
 Actualmente muestra la frase: lastResult.textContent = '!!!Pérdistes!!!';
-
 Solución: cambio de la descripción de la frase: lastResult.textContent = 'Felicitaciones! adivinaste el número!';
 
 0011 Error: Color establecido cuando el número es incorrecto, línea 66 no corresponde a los requisitos.
-
 Actualmente envían: lastResult.style.backgroundColor = 'black'; lo establecido en los requisitos debe ser color verde 
-
 Solución: lastResult.style.backgroundColor = 'green'; se agrega color verde a la respuesta al momento de ganar.
 
 ****************************************************************************************************************************************
